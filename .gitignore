@@ -17,4 +17,5 @@ node_modules/
 
 # Generated CV files (produced by uv run cv/build.py)
 cv/cv.tex
-cv/cv.pdf
+*/cv.pdf
+src/content/experience/*.md

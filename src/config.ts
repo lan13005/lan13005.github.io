@@ -3,7 +3,7 @@ export const site = {
   role: 'Postdoctoral Fellow · Physics & ML',
   greeting: "Hello! I'm Lawrence.",
   tagline: 'Bridging experimental physics and production-grade ML.',
-  bio: "Experienced researcher with a Ph.D. in Physics specializing in advanced statistical modeling, data analysis, and machine learning. Proven expertise developing robust, scalable analysis frameworks in Python and C++. Proficient in high-performance computing, parallel processing, and leveraging interdisciplinary collaborations to deliver data-driven solutions.",
+  bio: 'Experienced researcher with a Ph.D. in Physics specializing in advanced statistical modeling, data analysis, and machine learning. Proven expertise developing robust, scalable analysis frameworks in Python and C++. Proficient in high-performance computing, parallel processing, and leveraging interdisciplinary collaborations to deliver data-driven solutions.',
   ctas: {
     primary: { label: 'View Projects', href: '/projects' },
     secondary: { label: 'Download CV', href: '/cv.pdf' },

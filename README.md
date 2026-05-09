@@ -58,9 +58,7 @@ cv/
 | ----------------------------- | ----------------------------- | --------------------------------------------------------------- |
 | `cv/cv.tex`                   | `cv/cv.tex.j2` + `cv/cv.yaml` | Yes — gitignored                                                |
 | `public/cv.pdf`               | `cv/cv.tex` via pdflatex      | Yes — gitignored (CI builds it)                                 |
-| `src/content/experience/*.md` | `cv/cv.yaml`                  | Yes — committed so Astro builds work without running the script |
-
-Experience `.md` files are committed rather than gitignored so that `npm run build` works in environments where uv isn't available (e.g. bare CI jobs). Re-run `npm run cv` after editing `cv/cv.yaml` to keep them in sync.
+| `src/content/experience/*.md` | `cv/cv.yaml`                  | Yes — gitignored (CI generates them; run `npm run cv` locally)  |
 
 ## Adding content
 

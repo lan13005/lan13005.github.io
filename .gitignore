@@ -1,2 +1,20 @@
-dist
-node_modules
+dist/
+node_modules/
+.astro/
+
+# LaTeX build artifacts
+*.aux
+*.bbl
+*.bcf
+*.blg
+*.fdb_latexmk
+*.fls
+*.log
+*.out
+*.run.xml
+*.synctex.gz
+*.toc
+
+# Generated CV files (produced by uv run cv/build.py)
+cv/cv.tex
+cv/cv.pdf

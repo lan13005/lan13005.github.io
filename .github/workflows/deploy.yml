@@ -21,7 +21,7 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v4
         with:
-          fetch-depth: 2  # needed for git diff to detect cv/ changes
+          fetch-depth: 2 # needed for git diff to detect cv/ changes
 
       - name: Setup Node
         uses: actions/setup-node@v4

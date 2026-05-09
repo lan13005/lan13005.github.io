@@ -1,0 +1,54 @@
+---
+import { Icon } from 'astro-icon/components';
+import SocialIcons from './SocialIcons.astro';
+import { site } from '../config';
+
+const navLinks = [
+  { label: 'About', href: '/', icon: 'lucide:home' },
+  { label: 'Projects', href: '/projects', icon: 'lucide:folder' },
+  { label: 'Experience', href: '/experience', icon: 'lucide:briefcase' },
+  { label: 'Contact', href: '/contact', icon: 'lucide:mail' },
+];
+
+const pathname = Astro.url.pathname;
+const isActive = (href: string) => (href === '/' ? pathname === '/' : pathname.startsWith(href));
+---
+
+<nav
+  aria-label="Primary navigation"
+  class="fixed left-0 top-0 flex h-screen w-[280px] flex-col overflow-y-auto border-r border-gray-200 bg-white px-6 py-8"
+>
+  <!-- Identity -->
+  <div class="mb-8 text-center">
+    <p class="text-lg font-semibold leading-tight text-gray-900">{site.name}</p>
+    <p class="mt-0.5 text-sm text-gray-500">{site.role}</p>
+  </div>
+
+  <!-- Nav links -->
+  <ul class="flex flex-1 flex-col gap-1">
+    {
+      navLinks.map(({ label, href, icon }) => (
+        <li>
+          <a
+            href={href}
+            aria-current={isActive(href) ? 'page' : undefined}
+            class:list={[
+              'flex items-center gap-3 rounded-lg px-3 py-2 text-sm font-medium transition-colors',
+              isActive(href)
+                ? 'bg-accent-50 font-semibold text-accent'
+                : 'text-gray-600 hover:bg-gray-100 hover:text-gray-900',
+            ]}
+          >
+            <Icon name={icon} class="h-4 w-4 shrink-0" />
+            {label}
+          </a>
+        </li>
+      ))
+    }
+  </ul>
+
+  <!-- Social icons pinned to bottom -->
+  <div class="border-t border-gray-100 pt-6">
+    <SocialIcons />
+  </div>
+</nav>

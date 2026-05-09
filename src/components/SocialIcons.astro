@@ -1,0 +1,27 @@
+---
+import { Icon } from 'astro-icon/components';
+import { site } from '../config';
+
+const iconMap: Record<string, string> = {
+  github: 'lucide:github',
+  linkedin: 'lucide:linkedin',
+  scholar: 'lucide:graduation-cap',
+  email: 'lucide:mail',
+};
+---
+
+<div class="flex gap-3">
+  {
+    site.socials.map((s) => (
+      <a
+        href={s.href}
+        aria-label={s.label}
+        class="text-gray-500 transition-colors duration-150 hover:text-accent"
+        target={s.kind !== 'email' ? '_blank' : undefined}
+        rel={s.kind !== 'email' ? 'noopener noreferrer' : undefined}
+      >
+        <Icon name={iconMap[s.kind] ?? 'lucide:link'} class="h-5 w-5" />
+      </a>
+    ))
+  }
+</div>

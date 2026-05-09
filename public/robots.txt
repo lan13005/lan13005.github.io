@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://lan13005.github.io/sitemap-index.xml

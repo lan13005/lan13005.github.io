@@ -1,0 +1,33 @@
+{
+  "name": "lan13005.github.io",
+  "type": "module",
+  "version": "0.1.0",
+  "scripts": {
+    "dev": "astro dev",
+    "build": "astro build",
+    "preview": "astro preview",
+    "format": "prettier --write .",
+    "lint": "eslint . --ext .astro,.ts,.tsx",
+    "cv": "uv run cv/build.py",
+    "cv:pdf": "uv run cv/build.py --pdf"
+  },
+  "dependencies": {
+    "@astrojs/sitemap": "^3.1.6",
+    "@astrojs/tailwind": "^5.1.4",
+    "@fontsource/inter": "^5.1.1",
+    "@iconify-json/lucide": "^1.2.105",
+    "astro": "^4.15.0",
+    "astro-icon": "^1.1.5",
+    "tailwindcss": "^3.4.17"
+  },
+  "devDependencies": {
+    "@tailwindcss/typography": "^0.5.15",
+    "@typescript-eslint/parser": "^7.0.0",
+    "eslint": "^8.57.0",
+    "eslint-plugin-astro": "^1.3.1",
+    "prettier": "^3.0.0",
+    "prettier-plugin-astro": "^0.14.1",
+    "prettier-plugin-tailwindcss": "^0.6.11",
+    "typescript": "^5.0.0"
+  }
+}

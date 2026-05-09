@@ -1,0 +1,68 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import { getCollection } from 'astro:content';
+import type { GetStaticPaths } from 'astro';
+
+export const getStaticPaths: GetStaticPaths = async () => {
+  const projects = await getCollection('projects', ({ data }) => !data.draft);
+  return projects.map((p) => ({ params: { slug: p.slug }, props: { entry: p } }));
+};
+
+const { entry } = Astro.props;
+const { Content } = await entry.render();
+const { title, summary, tags, repo, demo, date } = entry.data;
+const fmt = (d: Date) => d.toLocaleDateString('en-US', { year: 'numeric', month: 'long' });
+---
+
+<BaseLayout title={`${title} — Alex Rivera`} description={summary}>
+  <article class="max-w-prose">
+    <header class="mb-8">
+      <div class="mb-3 flex flex-wrap gap-1.5">
+        {
+          tags.map((t) => (
+            <span class="rounded-full bg-gray-100 px-2 py-0.5 text-xs text-gray-600">{t}</span>
+          ))
+        }
+      </div>
+      <h1 class="mb-2 text-3xl font-bold text-gray-900">{title}</h1>
+      <p class="mb-4 text-gray-500">{summary}</p>
+      <p class="text-sm text-gray-400">{fmt(date)}</p>
+      <div class="mt-4 flex gap-3">
+        {
+          repo && (
+            <a
+              href={repo}
+              target="_blank"
+              rel="noopener noreferrer"
+              class="text-sm font-medium text-accent hover:underline"
+            >
+              GitHub →
+            </a>
+          )
+        }
+        {
+          demo && (
+            <a
+              href={demo}
+              target="_blank"
+              rel="noopener noreferrer"
+              class="text-sm font-medium text-accent hover:underline"
+            >
+              Live Demo →
+            </a>
+          )
+        }
+      </div>
+    </header>
+
+    <div
+      class="prose prose-gray max-w-none prose-headings:font-semibold prose-a:text-accent prose-a:no-underline hover:prose-a:underline"
+    >
+      <Content />
+    </div>
+
+    <div class="mt-10">
+      <a href="/projects" class="text-sm text-accent hover:underline">← All Projects</a>
+    </div>
+  </article>
+</BaseLayout>

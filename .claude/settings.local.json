@@ -1,0 +1,15 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(npm --version)",
+      "Bash(npm show *)",
+      "Bash(npm info *)",
+      "Bash(npm install *)",
+      "Bash(npm run *)",
+      "Bash(node *)",
+      "Bash(pip install *)",
+      "Bash(python3 cv/build.py)",
+      "Bash(uv run *)"
+    ]
+  }
+}

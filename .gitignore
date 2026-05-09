@@ -15,7 +15,5 @@ node_modules/
 *.synctex.gz
 *.toc
 
-# Generated CV files (produced by uv run cv/build.py)
-cv/cv.tex
+# Generated CV PDF (CI builds this from cv/cv.tex)
 */cv.pdf
-src/content/experience/*.md

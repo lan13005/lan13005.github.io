@@ -1,0 +1,224 @@
+\documentclass[letterpaper,11pt]{article}
+
+\usepackage{latexsym}
+\usepackage[empty]{fullpage}
+\usepackage{titlesec}
+\usepackage{marvosym}
+\usepackage[usenames,dvipsnames]{color}
+\usepackage{verbatim}
+\usepackage{enumitem}
+\usepackage[hidelinks]{hyperref}
+\usepackage{fancyhdr}
+\usepackage[english]{babel}
+\usepackage{tabularx}
+\input{glyphtounicode}
+
+\usepackage{hyperref}
+\hypersetup{
+    colorlinks=true,
+    linkcolor=blue,
+    filecolor=blue,
+    urlcolor=blue,
+    citecolor=blue
+}
+
+% Adjust margins
+\addtolength{\oddsidemargin}{-0.5in}
+\addtolength{\evensidemargin}{-0.5in}
+\addtolength{\textwidth}{1in}
+\addtolength{\topmargin}{-.5in}
+\addtolength{\textheight}{1.0in}
+
+\urlstyle{same}
+
+\raggedbottom
+\raggedright
+\setlength{\tabcolsep}{0in}
+
+% Sections formatting
+\titleformat{\section}{
+  \vspace{-6pt}\scshape\raggedright\large
+}{}{0em}{}[\color{black}\titlerule \vspace{-5pt}]
+
+% Ensure that generated pdf is machine readable/ATS parsable
+\pdfgentounicode=1
+
+%-------------------------
+% Custom commands
+\newcommand{\resumeItem}[1]{
+  \item\small{
+    {#1 \vspace{-2pt}}
+  }
+}
+
+\newcommand{\resumeSubheading}[4]{
+  \vspace{-2pt}\item
+    \begin{tabular*}{0.97\textwidth}[t]{l@{\extracolsep{\fill}}r}
+      \textbf{#1} & #2 \\
+      \textit{\small#3} & \textit{\small #4} \\
+    \end{tabular*}\vspace{-7pt}
+}
+
+\newcommand{\resumeSubheadingB}[1]{
+  \vspace{-2pt}\item
+    \begin{tabular*}{0.97\textwidth}[t]{l@{\extracolsep{\fill}}r}
+      \textbf{#1} \\
+    \end{tabular*}\vspace{-7pt}
+}
+
+\newcommand{\resumeSubSubheading}[2]{
+    \item
+    \begin{tabular*}{0.97\textwidth}{l@{\extracolsep{\fill}}r}
+      \textit{\small#1} & \textit{\small #2} \\
+    \end{tabular*}\vspace{-7pt}
+}
+
+\newcommand{\resumeProjectHeading}[2]{
+    \item
+    \begin{tabular*}{0.97\textwidth}{l@{\extracolsep{\fill}}r}
+      \small#1 & #2 \\
+    \end{tabular*}\vspace{-7pt}
+}
+
+\newcommand{\resumeSubItem}[1]{\resumeItem{#1}\vspace{-4pt}}
+
+\renewcommand\labelitemii{$\vcenter{\hbox{\tiny$\bullet$}}$}
+
+\newcommand{\resumeSubHeadingListStart}{\begin{itemize}[leftmargin=0.15in, label={}]}
+\newcommand{\resumeSubHeadingListEnd}{\end{itemize}}
+\newcommand{\resumeItemListStart}{\begin{itemize}}
+\newcommand{\resumeItemListEnd}{\end{itemize}\vspace{-5pt}}
+
+%-------------------------------------------
+%%%%%%  RESUME STARTS HERE  %%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+\begin{document}
+
+%----------HEADING----------
+\begin{center}
+    \textbf{\Huge \scshape Lawrence Ng} \\ \vspace{1pt}
+    \small (860) 502-7573 $|$ \href{mailto:lng1492@gmail.com}{\underline{lng1492@gmail.com}} $|$ 
+    \href{https://github.com/lan13005}{\underline{GitHub}} $|$ 
+    \href{https://linkedin.com/in/lawrence-ng-070050157}{\underline{LinkedIn}} $|$ 
+    \href{https://scholar.google.com/citations?user=fiWazGQAAAAJ&hl=en}{\underline{Google Scholar}}
+\end{center}
+
+%-----------SUMMARY-----------
+\section{Summary}
+Experienced researcher with a Ph.D. in Physics specializing in advanced statistical modeling, data analysis, and machine learning. Proven expertise developing robust, scalable analysis frameworks from the ground up in Python and C++. Proficient in high-performance computing, parallel processing, and leveraging interdisciplinary collaborations to deliver data-driven solutions.
+
+%-----------TECHNICAL SKILLS-----------
+\section{Technical Skills}
+\begin{itemize}[leftmargin=0.15in, label={}]
+  \small{\item{
+    \textbf{Programming Languages:} Python, C\texttt{++}, ROOT \\
+    \textbf{Python Libraries and Frameworks:} JAX, numpyro, PyTorch, Optuna, numpy, pandas, scipy, iminuit, matplotlib, cppyy, just-the-docs, jupyter-book, FastMCP, dash, flask  \\
+    \textbf{Tools and Technologies:} Cursor/VSCode, MCP, Linux, MPI, Git, SLURM, LaTeX, Make, Docker, Apptainer, Singularity, Snakemake, Vim \\
+    \textbf{Machine Learning and Data Science:} Numerical Optimization, Information Field Theory, Gaussian Processes, Bayesian/Variational Inference, Markov Chain Monte Carlo (HMC), Stein Variational Gradient Descent, Deep Learning (Normalizing flows, CNNs, VAEs, LSTMs, Density Ratio Estimation), Time Series Analysis, Model Selection, Hypothesis Testing, Regression, Classification, Clustering, Data Mining
+  }}
+\end{itemize}
+
+%-----------EDUCATION-----------
+\section{Education}
+  % \resumeSubHeadingListStart
+  %   \resumeSubheading
+  %       {Florida State University}{Tallahassee, FL}
+  %       {Doctor of Philosophy in Physics}{Aug. 2016 -- May 2023}
+  %   \resumeSubheading
+  %     {University of Connecticut}{Storrs, CT}
+  %     {Bachelor of Science in Physics}{Aug. 2013 -- May 2015}
+  % \resumeSubHeadingListEnd
+
+  % \resumeSubHeadingListStart
+  %   \resumeSubheading
+  %       {Doctor of Philosophy (PhD) in Physics, Florida State University}{Aug.~2016 -- May~2023}
+  %       {}{}
+  %   \resumeSubheading
+  %       {Bachelor of Science in Physics, University of Connecticut}{Aug. 2013 -- May 2015}
+  %       {}{}
+  % \resumeSubHeadingListEnd
+
+\hspace{0.2cm} \small{Doctor of Philosophy (PhD) in Physics, \textbf{Florida State University} \hfill{Aug.~2016 -- May~2023}} \\
+\hspace{0.2cm} \small{Bachelor of Science in Physics, \textbf{University of Connecticut }\hfill{Aug. 2013 -- May 2015}}
+
+%-----------EXPERIENCE-----------
+\section{Experience}
+  \resumeSubHeadingListStart
+    \resumeSubheading
+      {Postdoctoral Fellow}{July 2023 -- Present}
+      {Thomas Jefferson National Accelerator Facility (JLab)}{Newport News, VA}
+      \resumeItemListStart
+        \resumeItem{Developing a declarative framework to construct smooth non-parametric statistical models for physics analysis using Python, JAX, and OpenMPI utilizing Gaussian Processes and Variational Inference techniques allowing Bayesian inference over $\mathcal{O}(10^6)$ free parameters.
+        \href{https://github.com/fmkroci/iftpwa}{View Github}}
+        \resumeItem{Built an end-to-end analysis pipeline in Python, that generates physics events from a model, emulates detector efficiency using normalizing flows, and interfaces with several optimization frameworks allowing both Bayesian- and frequentist-based inference. This setup allows for rapid closure tests to be performed under a unified framework from different statistical lenses. \href{https://github.com/lan13005/PyAmpTools}{View Github}}
+        \resumeItem{Created python bindings for collaboration's C\texttt{++} analysis software providing a more dynamic interaction that simplifies workflows.}
+        \resumeItem{Created and maintain user-friendly documentation for the above software to ensure long term sustainability and guiding future developers.}
+      \resumeItemListEnd
+    \resumeSubheading
+      {Research Assistant}{Aug. 2016 -- May 2023}
+      {Florida State University}{Tallahassee, FL}
+      \resumeItemListStart
+        \resumeItem{\textbf{Published in \textit{Physical Review D}}: Developed a framework using Deep Neural Networks to determine the nature of exotic hadrons from their spectra, utilizing Shapley values to understand feature importance.}
+        \resumeItem{\textbf{Published in \textit{The Astrophysical Journal}}: Collaborated with observational astronomers to develop a conditional variational autoencoder neural network for generating template supernova spectra reducing a class of systematic uncertainties by $\sim90\%$.}
+        \resumeItem{Implemented a computationally intensive background subtraction technique in C\texttt{++} with multiprocessing support, improving analysis efficiency for large datasets. \href{https://github.com/lan13005/Q-Factors}{View Github}}
+        \resumeItem{Applied maximum likelihood optimization, Markov Chain Monte Carlo, and model selection methods (like information criteria and regularization) to complex real-world physics problems.}
+        % \resumeItem{Collaborated on research with the Compact Muon Solenoid (CMS) group, contributing to R\&D for the Large Hadron Collider (LHC) upgrade by programming in LabVIEW and conducting equipment maintenance.}
+
+      \resumeItemListEnd
+
+    \resumeSubheadingB
+      {Additional Experience}{}
+      \resumeItemListStart
+            \resumeItem{Experienced in guiding LLM agents, like Cursor Agent, using structured task plans, rule-based logic, prompt engineering, context-aware reasoning, and Model Context Protocol (MCP) tooling.}
+            % \resumeItem{Building a python package for value investing based on macroeconomic trends. LLM agent with MCP tools and command-line interface. \href{https://github.com/lan13005/fundamentals}{View Github}}
+            \resumeItem{Participated in ML4SCI (November 2021), team achieved top placements in challenges involving planetary albedo, gravitational lensing, and circumgalactic medium modeling using  U-Net and GANs, and variaional autoencoders.}
+      \resumeItemListEnd
+    
+    % \resumeSubheading
+    %   {Undergraduate Research Assistant}{Aug. 2013 -- May 2015}
+    %   {University of Connecticut}{Storrs, CT}
+    %   \resumeItemListStart
+    %     \resumeItem{Analyzed astronomical spectra to determine elemental abundances using statistical modeling techniques in Mathematica and MATLAB.}
+    %   \resumeItemListEnd
+  \resumeSubHeadingListEnd
+
+%-----------MACHINE LEARNING EXPERIENCE-----------
+% \section{Machine Learning Experience}
+% \resumeSubHeadingListStart
+%     \item\small{
+%         \textbf{Professional Experience}
+%         \resumeItemListStart
+%             \resumeItem{Developed neural network models to determine the nature of exotic hadrons from their spectra, utilizing explainable AI techniques and Bayesian optimization with \texttt{Hyperopt}. Implemented in PyTorch.}
+%             \resumeItem{Collaborated with observational astronomers to develop a conditional variational autoencoder neural network for generating template supernova spectra.}
+%             \resumeItem{Automated data extraction and monitoring by web-scraping using Python's \texttt{lxml} library to ensure consistency in run quality and parameters.}
+%         \resumeItemListEnd
+%         \vspace{2pt}
+%         \textbf{Hackathons and Workshops}
+%         \resumeItemListStart
+%             \resumeItem{Participated in ML4SCI (November 2021), achieving top placements in challenges involving planetary albedo, gravitational lensing, and circumgalactic medium modeling using  U-Net and GANs, and variational autoencoders.}
+%             \resumeItem{Engaged in the Quarks to Cosmos Hackathon (July 2021) and JLab AI Town Hall Hackathon (June 2021), enhancing skills in variational inference and deep learning.}
+%             \resumeItem{Attended machine learning workshops such as the FRIB TA Summer School and the Deep Learning for Science Summer School to expand knowledge in applying ML to scientific research.}
+%           \resumeItemListEnd
+%     }
+% \resumeSubHeadingListEnd
+
+%-----------PUBLICATIONS-----------
+% \section{Selected Publications}
+% \begin{itemize}[leftmargin=0.15in, label={}]
+%     \item \textbf{L. Ng}, L. Bibrzycki, J. Nys, et al. "Deep Learning Exotic Hadrons," \textit{Phys. Rev. D} 105 (2022) L091501.
+%     \item J. Lu, \textbf{L. Ng}, et al. "Carnegie Supernova Project-II: Near-infrared spectral diversity and template of Type Ia Supernovae," \textit{arXiv}:2211.05998.
+% \end{itemize}
+
+%-----------ADDITIONAL INFORMATION-----------
+% \section{Additional Information}
+% \begin{itemize}[leftmargin=0.15in, label={}]
+%     \small{\item{
+%     % \item \textbf{Financial Modeling Self-study} Developing Hierarchical Bayesian models for Sports prediction market. Broadening financial intuition through podcasts like \textit{"Flirting with Models"}
+%     \textbf{Collaboration:} Proven ability to work effectively in interdisciplinary teams, bridging the gap between physics and data science to deliver unique scientific results \\ 
+%     \textbf{Communication:} Experienced in presenting complex technical concepts to diverse audiences, including numerous presentations at international conferences and seminars. \\ 
+%     \textbf{Languages:} English (native), Cantonese (native), Spanish (basic)
+%     }}
+% \end{itemize}
+
+\end{document}

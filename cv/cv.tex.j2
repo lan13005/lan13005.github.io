@@ -1,0 +1,149 @@
+\documentclass[letterpaper,11pt]{article}
+
+\usepackage{latexsym}
+\usepackage[empty]{fullpage}
+\usepackage{titlesec}
+\usepackage{marvosym}
+\usepackage[usenames,dvipsnames]{color}
+\usepackage{verbatim}
+\usepackage{enumitem}
+\usepackage[hidelinks]{hyperref}
+\usepackage{fancyhdr}
+\usepackage[english]{babel}
+\usepackage{tabularx}
+\input{glyphtounicode}
+
+\usepackage{hyperref}
+\hypersetup{
+    colorlinks=true,
+    linkcolor=blue,
+    filecolor=blue,
+    urlcolor=blue,
+    citecolor=blue
+}
+
+\addtolength{\oddsidemargin}{-0.5in}
+\addtolength{\evensidemargin}{-0.5in}
+\addtolength{\textwidth}{1in}
+\addtolength{\topmargin}{-.5in}
+\addtolength{\textheight}{1.0in}
+
+\urlstyle{same}
+
+\raggedbottom
+\raggedright
+\setlength{\tabcolsep}{0in}
+
+\titleformat{\section}{
+  \vspace{-6pt}\scshape\raggedright\large
+}{}{0em}{}[\color{black}\titlerule \vspace{-5pt}]
+
+\pdfgentounicode=1
+
+\newcommand{\resumeItem}[1]{
+  \item\small{
+    {#1 \vspace{-2pt}}
+  }
+}
+
+\newcommand{\resumeSubheading}[4]{
+  \vspace{-2pt}\item
+    \begin{tabular*}{0.97\textwidth}[t]{l@{\extracolsep{\fill}}r}
+      \textbf{#1} & #2 \\
+      \textit{\small#3} & \textit{\small #4} \\
+    \end{tabular*}\vspace{-7pt}
+}
+
+\newcommand{\resumeSubheadingB}[1]{
+  \vspace{-2pt}\item
+    \begin{tabular*}{0.97\textwidth}[t]{l@{\extracolsep{\fill}}r}
+      \textbf{#1} \\
+    \end{tabular*}\vspace{-7pt}
+}
+
+\newcommand{\resumeSubSubheading}[2]{
+    \item
+    \begin{tabular*}{0.97\textwidth}{l@{\extracolsep{\fill}}r}
+      \textit{\small#1} & \textit{\small #2} \\
+    \end{tabular*}\vspace{-7pt}
+}
+
+\newcommand{\resumeProjectHeading}[2]{
+    \item
+    \begin{tabular*}{0.97\textwidth}{l@{\extracolsep{\fill}}r}
+      \small#1 & #2 \\
+    \end{tabular*}\vspace{-7pt}
+}
+
+\newcommand{\resumeSubItem}[1]{\resumeItem{#1}\vspace{-4pt}}
+
+\renewcommand\labelitemii{$\vcenter{\hbox{\tiny$\bullet$}}$}
+
+\newcommand{\resumeSubHeadingListStart}{\begin{itemize}[leftmargin=0.15in, label={}]}
+\newcommand{\resumeSubHeadingListEnd}{\end{itemize}}
+\newcommand{\resumeItemListStart}{\begin{itemize}}
+\newcommand{\resumeItemListEnd}{\end{itemize}\vspace{-5pt}}
+
+%-------------------------------------------
+
+\begin{document}
+
+%----------HEADING----------
+\begin{center}
+    \textbf{\Huge \scshape << personal.name >>} \\ \vspace{1pt}
+    \small << personal.phone >> $|$ \href{mailto:<< personal.email >>}{\underline{<< personal.email >>}} $|$
+    \href{<< personal.github_url >>}{\underline{GitHub}} $|$
+    \href{<< personal.linkedin_url >>}{\underline{LinkedIn}} $|$
+    \href{<< personal.scholar_url >>}{\underline{Google Scholar}}
+\end{center}
+
+%-----------SUMMARY-----------
+\section{Summary}
+<< personal.bio | trim >>
+
+%-----------TECHNICAL SKILLS-----------
+\section{Technical Skills}
+\begin{itemize}[leftmargin=0.15in, label={}]
+  \small{\item{
+    \textbf{Programming Languages:} << skills.programming_latex >> \\
+    \textbf{Python Libraries and Frameworks:} << skills.libraries_latex >> \\
+    \textbf{Tools and Technologies:} << skills.tools_latex >> \\
+    \textbf{Machine Learning and Data Science:} << skills.ml_ds_latex >>
+  }}
+\end{itemize}
+
+%-----------EDUCATION-----------
+\section{Education}
+<% for edu in education %>
+\hspace{0.2cm} \small{<< edu.degree >>, \textbf{<< edu.institution >>} \hfill{<< edu.start >> -- << edu.end >>}} \\
+<% endfor %>
+
+%-----------EXPERIENCE-----------
+\section{Experience}
+  \resumeSubHeadingListStart
+<% for exp in experience %>
+<% if exp.org %>
+    \resumeSubheading
+      {<< exp.role >>}{<< exp.start_str >> -- << exp.end_str >>}
+      {<< exp.org >>}{<< exp.location or '' >>}
+<% else %>
+    \resumeSubheadingB
+      {<< exp.role >>}{}
+<% endif %>
+      \resumeItemListStart
+<% for bullet in exp.bullets %>
+        \resumeItem{%
+<% if bullet.get('publication') %>
+\textbf{Published in \textit{<< bullet.publication >>}}: %
+<% endif %>
+<< (bullet.latex_text if bullet.get('latex_text') else bullet.text) | trim >>%
+<% if bullet.get('link') %>
+ \href{<< bullet.link >>}{\underline{View Github}}%
+<% endif %>
+}
+<% endfor %>
+      \resumeItemListEnd
+<% endfor %>
+  \resumeSubHeadingListEnd
+
+\end{document}

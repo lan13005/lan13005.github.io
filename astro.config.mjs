@@ -7,4 +7,11 @@ export default defineConfig({
   site: 'https://lan13005.github.io',
   integrations: [tailwind({ applyBaseStyles: false }), sitemap(), icon()],
   output: 'static',
+  vite: {
+    optimizeDeps: {
+      esbuildOptions: {
+        logLevel: 'silent',
+      },
+    },
+  },
 });

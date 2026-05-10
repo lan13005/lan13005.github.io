@@ -1,0 +1,7 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 630" width="1200" height="630">
+  <rect width="1200" height="630" fill="#6366f1"/>
+  <rect x="60" y="60" width="1080" height="510" rx="24" fill="#4f46e5"/>
+  <text x="600" y="280" font-family="sans-serif" font-size="72" font-weight="700" fill="white" text-anchor="middle">Lawrence Ng</text>
+  <text x="600" y="370" font-family="sans-serif" font-size="36" fill="#c7d2fe" text-anchor="middle">Postdoctoral Fellow · Physics &amp; ML</text>
+  <text x="600" y="460" font-family="sans-serif" font-size="28" fill="#a5b4fc" text-anchor="middle">lan13005.github.io</text>
+</svg>

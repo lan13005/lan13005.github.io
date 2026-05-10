@@ -39,4 +39,3 @@ When you're done, push to `main`. Astro renders every page to static HTML and bu
 ## Assets to replace
 
 - `public/og-image.svg` — replace with a real 1200×630 OG image
-- `src/assets/hero.svg` — replace with a preferred illustration

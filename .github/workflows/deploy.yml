@@ -30,13 +30,6 @@ jobs:
       - name: Install dependencies
         run: npm ci
 
-      - name: Build CV PDF
-        run: |
-          sudo apt-get update -qq
-          sudo apt-get install -y --no-install-recommends \
-            texlive-latex-base texlive-fonts-recommended texlive-fonts-extra
-          pdflatex -interaction=nonstopmode -output-directory public public/cv.tex
-
       - name: Build site
         run: npm run build
 

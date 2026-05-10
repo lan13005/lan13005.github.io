@@ -15,5 +15,4 @@ node_modules/
 *.synctex.gz
 *.toc
 
-# Generated CV PDF (CI builds this from cv/cv.tex)
-*/cv.pdf
+.DS_Store

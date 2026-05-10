@@ -1,10 +1,15 @@
 ---
+import { existsSync } from 'node:fs';
+import { resolve } from 'node:path';
 import BaseLayout from '../layouts/BaseLayout.astro';
 import WhatIDoCard from '../components/WhatIDoCard.astro';
 import ProjectCard from '../components/ProjectCard.astro';
 import ExperienceItem from '../components/ExperienceItem.astro';
 import { Icon } from 'astro-icon/components';
 import { site, getFeaturedProjects, experience, sortProjects } from '../data/index';
+
+const cvExists = existsSync(resolve('public/cv.pdf'));
+const ctas = site.cta.filter((c) => c.href !== '/cv.pdf' || cvExists);
 
 const featured = getFeaturedProjects();
 
@@ -42,7 +47,7 @@ const contacts = site.social.filter((s) => ['github', 'linkedin', 'email'].inclu
         <p class="mb-8 max-w-prose leading-relaxed text-gray-600">{site.bio}</p>
         <div class="flex flex-wrap gap-3">
           {
-            site.cta.map((c) => (
+            ctas.map((c) => (
               <a
                 href={c.href}
                 class:list={[

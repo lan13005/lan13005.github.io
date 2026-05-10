@@ -9,7 +9,10 @@
       "Bash(node *)",
       "Bash(pip install *)",
       "Bash(python3 cv/build.py)",
-      "Bash(uv run *)"
+      "Bash(uv run *)",
+      "Bash(curl -s http://localhost:4321/experience)",
+      "Bash(pkill -f \"astro dev\")",
+      "Bash(git *)"
     ]
   }
 }

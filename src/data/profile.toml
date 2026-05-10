@@ -10,15 +10,14 @@ meta_title       = "Lawrence Ng — Postdoctoral Fellow"
 meta_description = "Personal site of Lawrence Ng, a physicist and ML researcher at Thomas Jefferson National Accelerator Facility."
 
 bio = """
-Experienced researcher with a Ph.D. in Physics specializing in advanced statistical modeling, \
-data analysis, and machine learning. Proven expertise developing robust, scalable analysis \
-frameworks in Python and C++. Proficient in high-performance computing, parallel processing, \
-and leveraging interdisciplinary collaborations to deliver data-driven solutions.\
+I am interested in understanding the world around us through statistics and computation — \ 
+whether it is characterizing the properties of quantum systems or analyzing survey responses \
+to identify patterns in collective human behavior.
 """
 
 [[site.cta]]
-label   = "View Projects"
-href    = "/projects"
+label   = "View Experience"
+href    = "/experience"
 primary = true
 
 [[site.cta]]
@@ -49,17 +48,46 @@ label = "Email"
 [[site.what_i_do]]
 icon  = "lucide:flask-conical"
 title = "Research"
-blurb = "Statistical modeling and ML for experimental physics analysis."
+blurb = "Performing Statistical modeling and AI for Research across disciplines"
 
 [[site.what_i_do]]
 icon  = "lucide:wrench"
 title = "Engineering"
-blurb = "Scalable frameworks in Python, C++, and JAX — from prototype to production."
+blurb = "Scalable frameworks in Python — leveraging HPC resources"
 
 [[site.what_i_do]]
 icon  = "lucide:git-branch"
 title = "Open Source"
-blurb = "Building and maintaining physics analysis tooling used by collaborations."
+blurb = "Building and maintaining OSS for Research"
+
+
+# ─── Activities & Interests ──────────────────────────────────────────────────
+
+[[site.activity]]
+icon  = "lucide:mountain-snow"
+title = "Snowboarding"
+blurb = "Fresh powder on Bluebird days is Heaven on Earth"
+
+[[site.activity]]
+icon  = "lucide:footprints"
+title = "Hiking"
+blurb = "Exploring trails and summits"
+
+[[site.activity]]
+icon  = "lucide:mountain"
+title = "Rock Climbing / Bouldering"
+blurb = "Physical problem solving"
+
+[[site.activity]]
+icon  = "lucide:target"
+title = "Racquetball"
+blurb = "Will settle for tennis for now..."
+note  = "If you're in the Princeton area and know of a good court to play at, hit me up!"
+
+[[site.activity]]
+icon  = "lucide:gamepad-2"
+title = "Gaming"
+blurb = "Can often find me playing card games and roguelites"
 
 
 # ─── Experience & Projects ───────────────────────────────────────────────────
@@ -67,6 +95,14 @@ blurb = "Building and maintaining physics analysis tooling used by collaboration
 # summary.cv  → one-sentence version for the CV
 # summary.web → paragraph version for the website
 # summary.llm → path or URL to a richer data source for LLM digestion (optional)
+#
+# Project date fields (all optional):
+#   start           → project start date
+#   end             → project end date
+#   timeline_label  → which date to mark on the parent timeline: "start" | "end" | "mid"
+#
+# Experience tags are automatically derived from project tags (sorted by frequency).
+# Explicit `tags` on an experience are only used when it has no projects.
 
 [[experience]]
 id       = "princeton"
@@ -87,27 +123,31 @@ org      = "Thomas Jefferson National Accelerator Facility (JLab)"
 location = "Newport News, VA"
 start    = "2023-07-01"
 end      = "2025-07-01"
-tags     = ["python", "jax", "openmpi", "gaussian-processes", "variational-inference", "normalizing-flows"]
 
 summary.cv  = "Developed non-parametric statistical frameworks and end-to-end analysis pipelines for hadron physics using Python, JAX, and OpenMPI."
 summary.web = "Developed non-parametric statistical frameworks and end-to-end analysis pipelines for hadron physics using Python, JAX, and OpenMPI."
 
   [[experience.project]]
-  id       = "iftpwa"
-  title    = "iftpwa"
-  featured = false
-  github   = "https://github.com/fmkroci/iftpwa"
-  tags     = ["python", "jax", "openmpi", "gaussian-processes", "variational-inference"]
+  id             = "iftpwa"
+  title          = "iftpwa"
+  featured       = false
+  github         = "https://github.com/fmkroci/iftpwa"
+  start          = "2024-01-01"
+  timeline_label = "start"
+  tags           = ["python", "jax", "openmpi", "gaussian-processes", "variational-inference"]
 
   summary.cv  = "Declarative framework for smooth non-parametric statistical models using Gaussian Processes and Variational Inference, enabling Bayesian inference over O(10^6) free parameters."
   summary.web = "Developing a declarative framework for smooth non-parametric statistical models using Python, JAX, and OpenMPI with Gaussian Processes and Variational Inference, enabling Bayesian inference over O(10^6) free parameters."
 
   [[experience.project]]
-  id       = "pyamptools"
-  title    = "PyAmpTools"
-  featured = true
-  github   = "https://github.com/lan13005/PyAmpTools"
-  tags     = ["python", "c++", "normalizing-flows", "bayesian-inference"]
+  id             = "pyamptools"
+  title          = "PyAmpTools"
+  featured       = true
+  github         = "https://github.com/lan13005/PyAmpTools"
+  start          = "2023-07-01"
+  end            = "2025-07-01"
+  timeline_label = "start"
+  tags           = ["python", "c++", "normalizing-flows", "bayesian-inference"]
 
   summary.cv  = "End-to-end analysis pipeline: physics event generation, detector efficiency emulation via normalizing flows, interfacing with Bayesian and frequentist optimization frameworks. Includes Python bindings for the collaboration's C++ software and user-facing documentation."
   summary.web = "Built an end-to-end analysis pipeline generating physics events from a model, emulating detector efficiency via normalizing flows, and interfacing with both Bayesian- and frequentist-based optimization frameworks for rapid closure tests. Also created Python bindings for the collaboration's C++ analysis software and maintains user-facing documentation to ensure long-term sustainability."
@@ -120,35 +160,43 @@ org      = "Florida State University"
 location = "Tallahassee, FL"
 start    = "2016-08-01"
 end      = "2023-05-31"
-tags     = ["python", "pytorch", "cpp", "mcmc", "bayesian-inference", "deep-learning", "vaes"]
 
 summary.cv  = "Published research in top physics journals applying deep learning and Bayesian methods to hadron spectroscopy and supernova cosmology."
 summary.web = "Published research in top physics journals applying deep learning and Bayesian methods to hadron spectroscopy and supernova cosmology. Applied maximum likelihood optimization, Markov Chain Monte Carlo, and model selection methods to complex real-world physics problems."
 
   [[experience.project]]
-  id       = "exotic-hadrons-prd"
-  title    = "Exotic Hadron Classification"
-  featured = true
-  tags     = ["python", "pytorch", "deep-learning", "shapley-values"]
+  id             = "exotic-hadrons-prd"
+  title          = "Exotic Hadron Classification"
+  featured       = true
+  start          = "2020-01-01"
+  end            = "2022-06-01"
+  timeline_label = "end"
+  tags           = ["python", "pytorch", "deep-learning", "shapley-values"]
 
   summary.cv  = "Published in Physical Review D. DNN framework to determine the nature of exotic hadrons from their spectra using Shapley values for feature importance."
   summary.web = "Published in Physical Review D: Developed a framework using Deep Neural Networks to determine the nature of exotic hadrons from their spectra, utilizing Shapley values to understand feature importance."
 
   [[experience.project]]
-  id       = "supernova-cvae"
-  title    = "Supernova Spectral Templates"
-  featured = false
-  tags     = ["python", "pytorch", "vaes", "bayesian-inference"]
+  id             = "supernova-cvae"
+  title          = "Supernova Spectral Templates"
+  featured       = false
+  start          = "2018-01-01"
+  end            = "2021-06-01"
+  timeline_label = "mid"
+  tags           = ["python", "pytorch", "vaes", "bayesian-inference"]
 
   summary.cv  = "Published in The Astrophysical Journal. Conditional VAE for generating template supernova spectra, reducing systematic uncertainties by ~90%."
   summary.web = "Published in The Astrophysical Journal: Collaborated with observational astronomers to develop a conditional variational autoencoder for generating template supernova spectra, reducing a class of systematic uncertainties by ~90%."
 
   [[experience.project]]
-  id       = "q-factors"
-  title    = "Q-Factors Background Subtraction"
-  featured = false
-  github   = "https://github.com/lan13005/Q-Factors"
-  tags     = ["cpp", "multiprocessing"]
+  id             = "q-factors"
+  title          = "Q-Factors Background Subtraction"
+  featured       = false
+  github         = "https://github.com/lan13005/Q-Factors"
+  start          = "2016-08-01"
+  end            = "2019-01-01"
+  timeline_label = "start"
+  tags           = ["cpp", "multiprocessing"]
 
   summary.cv  = "Implemented computationally intensive background subtraction technique in C++ with multiprocessing support, improving analysis efficiency for large datasets."
   summary.web = "Implemented a computationally intensive background subtraction technique in C++ with multiprocessing support, improving analysis efficiency for large datasets."

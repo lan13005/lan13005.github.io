@@ -22,13 +22,12 @@ const endStr = end ? fmt(end) : 'Present';
 const sorted = sortProjects(projects ?? []);
 ---
 
-<div class="relative pb-10 pl-8 last:pb-0">
-  <div class="absolute bottom-0 left-0 top-0 w-px bg-gray-200" aria-hidden="true"></div>
+<div data-exp-item class="relative z-10 pb-10 pl-8 last:pb-0">
+  <!-- Experience dot — kept as CSS for the ring/shadow effect -->
   <div
     class="absolute left-0 top-1.5 h-3 w-3 -translate-x-1/2 rounded-full border-2 border-white bg-accent shadow"
     aria-hidden="true"
-  >
-  </div>
+  ></div>
 
   <div class="flex flex-col gap-1">
     <p class="text-xs font-medium uppercase tracking-wide text-gray-400">
@@ -53,23 +52,9 @@ const sorted = sortProjects(projects ?? []);
             return (
               <li
                 id={`${id}-${p.id}`}
+                data-proj-item={tlDate ? '' : undefined}
                 class="relative rounded-xl border border-gray-100 bg-gray-50 px-4 py-3"
               >
-                {tlDate && (
-                  <>
-                    {/* Horizontal connector from timeline to card left edge */}
-                    <div
-                      class="pointer-events-none absolute -left-8 top-5 h-px w-8 bg-gray-300"
-                      aria-hidden="true"
-                    />
-                    {/* Dot centred on the timeline line */}
-                    <div
-                      class="pointer-events-none absolute -left-8 top-5 h-2 w-2 -translate-x-1/2 -translate-y-1/2 rounded-full bg-accent/60 ring-2 ring-white"
-                      aria-hidden="true"
-                    />
-                  </>
-                )}
-
                 <div class="flex items-start justify-between gap-3">
                   <a
                     href={`/projects/${p.id}`}
@@ -89,7 +74,6 @@ const sorted = sortProjects(projects ?? []);
                   )}
                 </div>
 
-                {/* Date range row */}
                 {(p.start || p.end) && (
                   <p class="mt-0.5 text-[10px] uppercase tracking-wide text-gray-400">
                     {p.start ? fmt(p.start) : '?'}

@@ -1,7 +1,6 @@
 ---
 import '../styles/global.css';
 import Sidebar from '../components/Sidebar.astro';
-import MobileNav from '../components/MobileNav.astro';
 import { site } from '../data/index';
 
 interface Props {
@@ -51,9 +50,6 @@ const ogImageURL = Astro.site ? new URL(ogImage, Astro.site).toString() : ogImag
     >
       Skip to main content
     </a>
-
-    <!-- Mobile top nav (hidden on md+) -->
-    <MobileNav />
 
     <div class="flex min-h-screen">
       <!-- Sidebar spacer + fixed sidebar (hidden below md) -->

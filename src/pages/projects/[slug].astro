@@ -63,7 +63,9 @@ const fmt = (d: Date) => d.toLocaleDateString('en-US', { year: 'numeric', month:
     <p class="leading-relaxed text-gray-700">{summary.web}</p>
 
     <div class="mt-10">
-      <a href="/projects" class="text-sm text-accent hover:underline">← All Projects</a>
+      <a href={`/experience#${experience.id}`} class="text-sm text-accent hover:underline">
+        ← {experience.org}
+      </a>
     </div>
   </article>
 </BaseLayout>

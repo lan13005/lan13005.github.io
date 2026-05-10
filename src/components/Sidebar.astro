@@ -4,14 +4,11 @@ import SocialIcons from './SocialIcons.astro';
 import { site } from '../data/index';
 
 const navLinks = [
-  { label: 'About', href: '/', icon: 'lucide:home' },
-  { label: 'Projects', href: '/projects', icon: 'lucide:folder' },
-  { label: 'Experience', href: '/experience', icon: 'lucide:briefcase' },
-  { label: 'Contact', href: '/contact', icon: 'lucide:mail' },
+  { label: 'About', href: '/#about', id: 'about', icon: 'lucide:home' },
+  { label: 'Experience', href: '/#experience', id: 'experience', icon: 'lucide:briefcase' },
+  { label: 'Activities', href: '/#activities', id: 'activities', icon: 'lucide:heart' },
+  { label: 'Contact', href: '/#contact', id: 'contact', icon: 'lucide:mail' },
 ];
-
-const pathname = Astro.url.pathname;
-const isActive = (href: string) => (href === '/' ? pathname === '/' : pathname.startsWith(href));
 ---
 
 <nav
@@ -24,20 +21,15 @@ const isActive = (href: string) => (href === '/' ? pathname === '/' : pathname.s
     <p class="mt-0.5 text-sm text-gray-500">{site.role}</p>
   </div>
 
-  <!-- Nav links -->
+  <!-- Nav links (active state driven by scroll JS in index.astro) -->
   <ul class="flex flex-1 flex-col gap-1">
     {
-      navLinks.map(({ label, href, icon }) => (
+      navLinks.map(({ label, href, id, icon }) => (
         <li>
           <a
             href={href}
-            aria-current={isActive(href) ? 'page' : undefined}
-            class:list={[
-              'flex items-center gap-3 rounded-lg px-3 py-2 text-sm font-medium transition-colors',
-              isActive(href)
-                ? 'bg-accent-50 font-semibold text-accent'
-                : 'text-gray-600 hover:bg-gray-100 hover:text-gray-900',
-            ]}
+            data-nav-link={id}
+            class="flex items-center gap-3 rounded-lg px-3 py-2 text-sm font-medium transition-colors text-gray-600 hover:bg-gray-100 hover:text-gray-900"
           >
             <Icon name={icon} class="h-4 w-4 shrink-0" />
             {label}

@@ -60,7 +60,7 @@ const contacts = site.social.filter((s) => ['github', 'linkedin', 'email'].inclu
       </div>
       <div class="flex shrink-0 justify-center md:justify-end">
         <img
-          src="/avatar.png"
+          src={`${import.meta.env.BASE_URL.replace(/\/$/, '')}/avatar.png`}
           alt="Profile photo"
           class="h-60 w-60 rounded-full object-cover shadow-lg ring-4 ring-accent-100"
         />

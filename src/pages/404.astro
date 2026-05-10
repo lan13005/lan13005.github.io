@@ -10,7 +10,7 @@ import BaseLayout from '../layouts/BaseLayout.astro';
       <p class="text-gray-500">The page you're looking for doesn't exist or has moved.</p>
     </div>
     <a
-      href="/"
+      href={import.meta.env.BASE_URL.replace(/\/$/, '') || '/'}
       class="rounded-xl bg-accent px-5 py-2.5 text-sm font-medium text-white shadow-sm transition-colors hover:bg-accent-600"
     >
       Go Home

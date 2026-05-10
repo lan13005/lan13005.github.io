@@ -5,6 +5,10 @@ Built with [Astro](https://astro.build), [Tailwind CSS](https://tailwindcss.com)
 - Node.js 20+, npm 9+
 - pdflatex / TeX Live (only needed to compile the CV PDF locally)
 
+# URL
+
+[Click here for the personal page](https://lan13005.github.io/personal_page/)
+
 # Content
 
 Everything — personal info, experience, projects, social links — lives in one file: **`src/data/profile.toml`**.

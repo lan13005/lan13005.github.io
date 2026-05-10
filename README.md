@@ -39,6 +39,14 @@ npm run cv:pdf    # compiles → public/cv.pdf (requires pdflatex locally)
 
 When you're done, push to `main`. Astro renders every page to static HTML and bundles assets into `dist/`, and then deploys it to GitHub Pages via GitHub Actions.
 
+## Googlebot Crawler
+
+Google's crawler will eventually find your page and index it. To speed it up, we can go to:
+
+1. [Google Search Console](https://search.google.com/search-console)
+2. Click "Add Property" > "URL Prefix" > Enter github.io URL
+3. Copy HTML tag > Paste into src/layouts/BaseLayout.astro `<head>` section before `<body>`
+
 ## Assets to replace
 
 - `public/og-image.svg` — replace with a real 1200×630 OG image

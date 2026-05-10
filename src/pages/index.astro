@@ -2,14 +2,9 @@
 import BaseLayout from '../layouts/BaseLayout.astro';
 import WhatIDoCard from '../components/WhatIDoCard.astro';
 import ProjectCard from '../components/ProjectCard.astro';
-import { site } from '../config';
-import { getCollection } from 'astro:content';
+import { site, getFeaturedProjects } from '../data/index';
 
-const allProjects = await getCollection('projects', ({ data }) => !data.draft);
-const featured = allProjects
-  .filter((p) => p.data.featured)
-  .sort((a, b) => b.data.date.valueOf() - a.data.date.valueOf())
-  .slice(0, 2);
+const featured = getFeaturedProjects();
 ---
 
 <BaseLayout>
@@ -21,18 +16,21 @@ const featured = allProjects
       <p class="mb-4 text-xl font-medium text-gray-500">{site.tagline}</p>
       <p class="mb-8 max-w-prose leading-relaxed text-gray-600">{site.bio}</p>
       <div class="flex flex-wrap gap-3">
-        <a
-          href={site.ctas.primary.href}
-          class="rounded-xl bg-accent px-5 py-2.5 text-sm font-medium text-white shadow-sm transition-colors hover:bg-accent-600"
-        >
-          {site.ctas.primary.label}
-        </a>
-        <a
-          href={site.ctas.secondary.href}
-          class="rounded-xl border border-gray-300 px-5 py-2.5 text-sm font-medium text-gray-700 transition-colors hover:bg-gray-50"
-        >
-          {site.ctas.secondary.label}
-        </a>
+        {
+          site.cta.map((c) => (
+            <a
+              href={c.href}
+              class:list={[
+                'rounded-xl px-5 py-2.5 text-sm font-medium shadow-sm transition-colors',
+                c.primary
+                  ? 'bg-accent text-white hover:bg-accent-600'
+                  : 'border border-gray-300 text-gray-700 hover:bg-gray-50',
+              ]}
+            >
+              {c.label}
+            </a>
+          ))
+        }
       </div>
     </div>
     <!-- Profile photo -->
@@ -50,19 +48,19 @@ const featured = allProjects
     <h2 class="mb-6 text-2xl font-bold text-gray-900">What I Do</h2>
     <div class="grid grid-cols-1 gap-4 sm:grid-cols-3">
       {
-        site.whatIDo.map((card) => (
+        site.what_i_do.map((card) => (
           <WhatIDoCard icon={card.icon} title={card.title} blurb={card.blurb} />
         ))
       }
     </div>
   </section>
 
-  <!-- Recent Projects teaser -->
+  <!-- Featured Projects -->
   {
     featured.length > 0 && (
       <section>
         <div class="mb-6 flex items-center justify-between">
-          <h2 class="text-2xl font-bold text-gray-900">Recent Projects</h2>
+          <h2 class="text-2xl font-bold text-gray-900">Featured Projects</h2>
           <a href="/projects" class="text-sm font-medium text-accent hover:underline">
             View all →
           </a>
@@ -70,12 +68,12 @@ const featured = allProjects
         <div class="grid grid-cols-1 gap-4 sm:grid-cols-2">
           {featured.map((p) => (
             <ProjectCard
-              title={p.data.title}
-              summary={p.data.summary}
-              tags={p.data.tags}
-              href={`/projects/${p.slug}`}
-              repo={p.data.repo}
-              featured={p.data.featured}
+              title={p.title}
+              summary={p.summary.web}
+              tags={p.tags}
+              href={`/projects/${p.id}`}
+              repo={p.github}
+              featured={true}
             />
           ))}
         </div>

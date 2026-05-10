@@ -1,7 +1,7 @@
 ---
 import { Icon } from 'astro-icon/components';
 import SocialIcons from './SocialIcons.astro';
-import { site } from '../config';
+import { site } from '../data/index';
 
 const navLinks = [
   { label: 'About', href: '/' },
@@ -12,10 +12,8 @@ const navLinks = [
 ---
 
 <div class="md:hidden">
-  <!-- Hidden checkbox is the toggle state machine; named peer "nav" -->
   <input type="checkbox" id="nav-toggle" class="peer/nav sr-only" />
 
-  <!-- Top bar -->
   <div class="flex items-center justify-between border-b border-gray-200 bg-white px-4 py-3">
     <span class="font-semibold text-gray-900">{site.name}</span>
     <label
@@ -28,7 +26,6 @@ const navLinks = [
     </label>
   </div>
 
-  <!-- Drawer: revealed when checkbox is checked -->
   <nav
     aria-label="Mobile navigation"
     class="hidden border-b border-gray-200 bg-white px-4 py-4 peer-checked/nav:block"

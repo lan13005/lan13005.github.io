@@ -1,89 +1,40 @@
-# lan13005.github.io
+# Prerequisites
 
-Personal portfolio site for Lawrence Ng — built with [Astro](https://astro.build), [Tailwind CSS](https://tailwindcss.com), and deployed to GitHub Pages.
-
-## Prerequisites
+Built with [Astro](https://astro.build), [Tailwind CSS](https://tailwindcss.com), and deployed to GitHub Pages.
 
 - Node.js 20+, npm 9+
 - pdflatex / TeX Live (only needed to compile the CV PDF locally)
 
-## Getting started
+# Content
+
+Everything — personal info, experience, projects, social links — lives in one file: **`src/data/profile.toml`**.
+
+Top-level structure:
+
+- `[site]` — name, bio, CTAs, socials, "What I Do" cards, meta tags
+- `[[experience]]` — jobs, each optionally containing `[[experience.project]]` entries
+- Projects appear on both the experience timeline and the projects page; `featured = true` also surfaces them on the home page
+
+# Development
+
+**One-time setup:** In your repo on GitHub, go to **Settings → Pages → Source** and set it to **"GitHub Actions"**.
+
+After that, every push to `main` deploys automatically.
 
 ```bash
 npm install
-npm run dev    # start dev server at http://localhost:4321
-```
+npm run dev    # http://localhost:4321, Astro watches for changes and hot-reloads the browser.
 
-## Scripts
+# Code Quality
+npm run format    # Prettier — rewrites files to enforce style
+npm run lint      # ESLint — flags logic and pattern issues
 
-| Command           | Description                                               |
-| ----------------- | --------------------------------------------------------- |
-| `npm run dev`     | Start local dev server                                    |
-| `npm run build`   | Build site for production → `dist/`                       |
-| `npm run preview` | Preview the production build locally                      |
-| `npm run format`  | Auto-format all files with Prettier                       |
-| `npm run lint`    | Lint `.astro` and `.ts` files with ESLint                 |
-| `npm run cv:pdf`  | Compile `cv/cv.tex` → `public/cv.pdf` (requires pdflatex) |
-
-## Adding content
-
-### New experience entry
-
-Edit `src/content/experience/` directly — create or update a `.md` file:
-
-```markdown
----
-role: 'Job Title'
-org: 'Organization'
-location: 'City, ST' # optional
-start: 2024-01-01
-end: 2024-12-31 # omit for "Present"
-summary: 'One sentence shown on the experience page.'
-tags: [python, ml]
----
-
-- Optional bullet point details (rendered on the experience page)
-```
-
-### New project
-
-Create a new Markdown file in `src/content/projects/`:
-
-```markdown
----
-title: 'My New Project'
-summary: 'One or two sentences describing it.'
-date: 2025-01-15
-tags: ['python', 'ml']
-repo: 'https://github.com/lan13005/my-project' # optional
-featured: false
-draft: false
----
-
-Project description in Markdown...
-```
-
-If `featured: true`, the project also appears on the home page teaser.
-
-### Update personal info
-
-Edit `src/config.ts` — name, role, bio, CTAs, social links, and "What I Do" cards.
-
-### CV PDF
-
-Edit `cv/cv.tex` directly, then:
-
-```bash
+# Converting LaTeX CV to PDF
+#   CI: the PDF is rebuilt automatically whenever any file in `cv/` changes.
 npm run cv:pdf    # compiles → public/cv.pdf (requires pdflatex locally)
 ```
 
-In CI, the PDF is rebuilt automatically whenever any file in `cv/` changes.
-
-## Deployment
-
-The site deploys automatically via GitHub Actions on every push to `main`.
-
-**One-time setup:** In your repo on GitHub, go to **Settings → Pages → Source** and set it to **"GitHub Actions"**.
+When you're done, push to `main`. Astro renders every page to static HTML and bundles assets into `dist/`, and then deploys it to GitHub Pages via GitHub Actions.
 
 ## Assets to replace
 

@@ -2,7 +2,7 @@
 import '../styles/global.css';
 import Sidebar from '../components/Sidebar.astro';
 import MobileNav from '../components/MobileNav.astro';
-import { site } from '../config';
+import { site } from '../data/index';
 
 interface Props {
   title?: string;
@@ -10,9 +10,9 @@ interface Props {
   ogImage?: string;
 }
 const {
-  title = site.meta.title,
-  description = site.meta.description,
-  ogImage = site.meta.ogImage,
+  title = site.meta_title,
+  description = site.meta_description,
+  ogImage = site.og_image,
 } = Astro.props;
 
 const canonicalURL = new URL(Astro.url.pathname, Astro.site);

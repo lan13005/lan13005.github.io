@@ -1,25 +1,24 @@
 ---
 import BaseLayout from '../../layouts/BaseLayout.astro';
 import ProjectCard from '../../components/ProjectCard.astro';
-import { getCollection } from 'astro:content';
+import { site, getAllProjects } from '../../data/index';
 
-const projects = await getCollection('projects', ({ data }) => !data.draft);
-const sorted = projects.sort((a, b) => b.data.date.valueOf() - a.data.date.valueOf());
+const projects = getAllProjects();
 ---
 
-<BaseLayout title="Projects — Alex Rivera">
+<BaseLayout title={`Projects — ${site.name}`}>
   <h1 class="mb-2 text-3xl font-bold text-gray-900">Projects</h1>
   <p class="mb-10 text-gray-500">Things I've built and researched.</p>
   <div class="grid grid-cols-1 gap-4 sm:grid-cols-2">
     {
-      sorted.map((p) => (
+      projects.map((p) => (
         <ProjectCard
-          title={p.data.title}
-          summary={p.data.summary}
-          tags={p.data.tags}
-          href={`/projects/${p.slug}`}
-          repo={p.data.repo}
-          featured={p.data.featured}
+          title={p.title}
+          summary={p.summary.web}
+          tags={p.tags}
+          href={`/projects/${p.id}`}
+          repo={p.github}
+          featured={p.featured}
         />
       ))
     }

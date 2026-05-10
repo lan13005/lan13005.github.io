@@ -1,6 +1,6 @@
 ---
 import { Icon } from 'astro-icon/components';
-import { site } from '../config';
+import { site } from '../data/index';
 
 const iconMap: Record<string, string> = {
   github: 'lucide:github',
@@ -12,7 +12,7 @@ const iconMap: Record<string, string> = {
 
 <div class="flex gap-3">
   {
-    site.socials.map((s) => (
+    site.social.map((s) => (
       <a
         href={s.href}
         aria-label={s.label}

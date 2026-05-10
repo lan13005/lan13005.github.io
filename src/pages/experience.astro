@@ -1,28 +1,28 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
 import ExperienceItem from '../components/ExperienceItem.astro';
-import { getCollection } from 'astro:content';
+import { site, experience } from '../data/index';
 
-const entries = await getCollection('experience');
-const sorted = entries.sort(
-  (a, b) => (b.data.end ?? new Date()).valueOf() - (a.data.end ?? new Date()).valueOf()
+const sorted = [...experience].sort(
+  (a, b) => (b.end ?? new Date()).valueOf() - (a.end ?? new Date()).valueOf()
 );
 ---
 
-<BaseLayout title="Experience — Alex Rivera">
+<BaseLayout title={`Experience — ${site.name}`}>
   <h1 class="mb-2 text-3xl font-bold text-gray-900">Experience</h1>
-  <p class="mb-10 text-gray-500">Where I've worked and what I've done.</p>
+  <p class="mb-10 text-gray-500">Where I've worked and what I've built.</p>
   <div>
     {
       sorted.map((e) => (
         <ExperienceItem
-          role={e.data.role}
-          org={e.data.org}
-          location={e.data.location}
-          start={e.data.start}
-          end={e.data.end}
-          summary={e.data.summary}
-          tags={e.data.tags}
+          role={e.role}
+          org={e.org}
+          location={e.location}
+          start={e.start}
+          end={e.end}
+          summary={e.summary.web}
+          tags={e.tags}
+          projects={e.project}
         />
       ))
     }

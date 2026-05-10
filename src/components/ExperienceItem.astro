@@ -1,4 +1,6 @@
 ---
+import type { Project } from '../data/index';
+
 interface Props {
   role: string;
   org: string;
@@ -7,8 +9,9 @@ interface Props {
   end?: Date;
   summary: string;
   tags: string[];
+  projects?: Project[];
 }
-const { role, org, location, start, end, summary, tags } = Astro.props;
+const { role, org, location, start, end, summary, tags, projects } = Astro.props;
 
 const fmt = (d: Date) => d.toLocaleDateString('en-US', { month: 'short', year: 'numeric' });
 const startStr = fmt(start);
@@ -16,9 +19,7 @@ const endStr = end ? fmt(end) : 'Present';
 ---
 
 <div class="relative pb-10 pl-8 last:pb-0">
-  <!-- Vertical timeline line -->
   <div class="absolute bottom-0 left-0 top-0 w-px bg-gray-200" aria-hidden="true"></div>
-  <!-- Timeline dot -->
   <div
     class="absolute left-0 top-1.5 h-3 w-3 -translate-x-1/2 rounded-full border-2 border-white bg-accent shadow"
     aria-hidden="true"
@@ -39,5 +40,42 @@ const endStr = end ? fmt(end) : 'Present';
         ))
       }
     </div>
+
+    {
+      projects && projects.length > 0 && (
+        <ul class="mt-4 flex flex-col gap-3">
+          {projects.map((p) => (
+            <li class="rounded-xl border border-gray-100 bg-gray-50 px-4 py-3">
+              <div class="flex items-start justify-between gap-3">
+                <a
+                  href={`/projects/${p.id}`}
+                  class="text-sm font-medium text-gray-900 transition-colors hover:text-accent"
+                >
+                  {p.title}
+                </a>
+                {p.github && (
+                  <a
+                    href={p.github}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    class="shrink-0 text-xs font-medium text-accent hover:underline"
+                  >
+                    GitHub →
+                  </a>
+                )}
+              </div>
+              <p class="mt-1 text-xs leading-relaxed text-gray-500">{p.summary.web}</p>
+              <div class="mt-2 flex flex-wrap gap-1">
+                {p.tags.map((t) => (
+                  <span class="rounded-full bg-white px-2 py-0.5 text-xs text-gray-500 ring-1 ring-gray-200">
+                    {t}
+                  </span>
+                ))}
+              </div>
+            </li>
+          ))}
+        </ul>
+      )
+    }
   </div>
 </div>

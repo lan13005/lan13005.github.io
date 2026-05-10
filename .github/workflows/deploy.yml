@@ -20,8 +20,6 @@ jobs:
     steps:
       - name: Checkout
         uses: actions/checkout@v4
-        with:
-          fetch-depth: 2 # needed for git diff to detect cv/ changes
 
       - name: Setup Node
         uses: actions/setup-node@v4
@@ -32,17 +30,12 @@ jobs:
       - name: Install dependencies
         run: npm ci
 
-      - name: Build CV PDF (if cv/ changed)
+      - name: Build CV PDF
         run: |
-          if git diff --name-only HEAD~1 HEAD 2>/dev/null | grep -qE '^cv/'; then
-            echo "cv/ changed — building PDF"
-            sudo apt-get update -qq
-            sudo apt-get install -y --no-install-recommends \
-              texlive-latex-base texlive-fonts-recommended texlive-fonts-extra
-            pdflatex -interaction=nonstopmode -output-directory public cv/cv.tex
-          else
-            echo "cv/ unchanged — skipping PDF build"
-          fi
+          sudo apt-get update -qq
+          sudo apt-get install -y --no-install-recommends \
+            texlive-latex-base texlive-fonts-recommended texlive-fonts-extra
+          pdflatex -interaction=nonstopmode -output-directory public public/cv.tex
 
       - name: Build site
         run: npm run build

@@ -131,12 +131,11 @@ const contacts = site.social.filter((s) => ['github', 'linkedin', 'email'].inclu
             class="pointer-events-none absolute left-0 top-0 z-0 overflow-visible"
             width="48"
             height="100"
-            aria-hidden="true"
-          ></svg>
+            aria-hidden="true"></svg>
         </div>
       </div>
 
-      <aside class="hidden lg:block w-44 shrink-0">
+      <aside class="hidden w-44 shrink-0 lg:block">
         <nav class="sticky top-16" aria-label="Experience outline">
           <p class="mb-3 text-[10px] font-semibold uppercase tracking-widest text-gray-400">
             On this page
@@ -190,9 +189,9 @@ const contacts = site.social.filter((s) => ['github', 'linkedin', 'email'].inclu
               </span>
               <h3 class="text-base font-semibold text-gray-900">{title}</h3>
             </div>
-            <p class="text-sm text-gray-600 leading-relaxed">{blurb}</p>
+            <p class="text-sm leading-relaxed text-gray-600">{blurb}</p>
             {note && (
-              <p class="mt-auto rounded-lg bg-amber-50 px-3 py-2 text-xs text-amber-700 border border-amber-200">
+              <p class="mt-auto rounded-lg border border-amber-200 bg-amber-50 px-3 py-2 text-xs text-amber-700">
                 {note}
               </p>
             )}
@@ -205,9 +204,7 @@ const contacts = site.social.filter((s) => ['github', 'linkedin', 'email'].inclu
   <!-- ── Contact ────────────────────────────────────────────── -->
   <section id="contact" class="scroll-mt-8">
     <h2 class="mb-2 text-3xl font-bold text-gray-900">Contact</h2>
-    <p class="mb-3 max-w-prose text-gray-500">
-      You can reach me at:
-    </p>
+    <p class="mb-3 max-w-prose text-gray-500">You can reach me at:</p>
     <ul class="flex flex-row flex-wrap gap-4">
       {
         contacts.map((s) => (
@@ -272,78 +269,77 @@ const contacts = site.social.filter((s) => ['github', 'linkedin', 'email'].inclu
   window.addEventListener('scroll', updateActive, { passive: true });
   requestAnimationFrame(updateActive);
 
-// ── Timeline SVG ──────────────────────────────────────────────────────────
-const ACCENT = '#6366f1';
-const MAIN_X = 0;
-const INDENT_X = 20;
+  // ── Timeline SVG ──────────────────────────────────────────────────────────
+  const ACCENT = '#6366f1';
+  const MAIN_X = 0;
+  const INDENT_X = 20;
 
-function drawTimeline() {
-  const list = document.getElementById('exp-list');
-  const svg = document.getElementById('exp-svg') as SVGSVGElement | null;
-  if (!list || !svg) return;
+  function drawTimeline() {
+    const list = document.getElementById('exp-list');
+    const svg = document.getElementById('exp-svg') as SVGSVGElement | null;
+    if (!list || !svg) return;
 
-  const listRect = list.getBoundingClientRect();
-  const totalHeight = list.offsetHeight;
+    const listRect = list.getBoundingClientRect();
+    const totalHeight = list.offsetHeight;
 
-  svg.setAttribute('height', String(totalHeight));
+    svg.setAttribute('height', String(totalHeight));
 
-  // Clear previous render
-  while (svg.firstChild) svg.removeChild(svg.firstChild);
+    // Clear previous render
+    while (svg.firstChild) svg.removeChild(svg.firstChild);
 
-  const expItems = Array.from(list.querySelectorAll<HTMLElement>('[data-exp-item]'));
-  if (expItems.length === 0) return;
+    const expItems = Array.from(list.querySelectorAll<HTMLElement>('[data-exp-item]'));
+    if (expItems.length === 0) return;
 
-  // Main vertical rail
-  const rail = document.createElementNS('http://www.w3.org/2000/svg', 'line');
-  rail.setAttribute('x1', String(MAIN_X));
-  rail.setAttribute('y1', '0');
-  rail.setAttribute('x2', String(MAIN_X));
-  rail.setAttribute('y2', String(totalHeight));
-  rail.setAttribute('stroke', '#d1d5db');
-  rail.setAttribute('stroke-width', '2');
-  rail.setAttribute('stroke-linecap', 'round');
-  svg.appendChild(rail);
+    // Main vertical rail
+    const rail = document.createElementNS('http://www.w3.org/2000/svg', 'line');
+    rail.setAttribute('x1', String(MAIN_X));
+    rail.setAttribute('y1', '0');
+    rail.setAttribute('x2', String(MAIN_X));
+    rail.setAttribute('y2', String(totalHeight));
+    rail.setAttribute('stroke', '#d1d5db');
+    rail.setAttribute('stroke-width', '2');
+    rail.setAttribute('stroke-linecap', 'round');
+    svg.appendChild(rail);
 
-  expItems.forEach((expItem) => {
-    const itemRect = expItem.getBoundingClientRect();
-    const expDotY = itemRect.top - listRect.top + 6;
+    expItems.forEach((expItem) => {
+      const itemRect = expItem.getBoundingClientRect();
+      const expDotY = itemRect.top - listRect.top + 6;
 
+      const projItems = Array.from(expItem.querySelectorAll<HTMLElement>('[data-proj-item]'));
 
-    const projItems = Array.from(expItem.querySelectorAll<HTMLElement>('[data-proj-item]'));
+      projItems.forEach((projItem) => {
+        const projY = projItem.getBoundingClientRect().top - listRect.top + 20;
 
-    projItems.forEach((projItem) => {
-      const projY = projItem.getBoundingClientRect().top - listRect.top + 20;
+        // Short horizontal connector
+        const connector = document.createElementNS('http://www.w3.org/2000/svg', 'line');
+        connector.setAttribute('x1', String(MAIN_X));
+        connector.setAttribute('y1', String(projY));
+        connector.setAttribute('x2', String(INDENT_X));
+        connector.setAttribute('y2', String(projY));
+        connector.setAttribute('stroke', '#d1d5db');
+        connector.setAttribute('stroke-width', '1.5');
+        connector.setAttribute('stroke-linecap', 'round');
+        svg.appendChild(connector);
 
-      // Short horizontal connector
-      const connector = document.createElementNS('http://www.w3.org/2000/svg', 'line');
-      connector.setAttribute('x1', String(MAIN_X));
-      connector.setAttribute('y1', String(projY));
-      connector.setAttribute('x2', String(INDENT_X));
-      connector.setAttribute('y2', String(projY));
-      connector.setAttribute('stroke', '#d1d5db');
-      connector.setAttribute('stroke-width', '1.5');
-      connector.setAttribute('stroke-linecap', 'round');
-      svg.appendChild(connector);
-
-      // Project dot
-      const projDot = document.createElementNS('http://www.w3.org/2000/svg', 'circle');
-      projDot.setAttribute('cx', String(INDENT_X));
-      projDot.setAttribute('cy', String(projY));
-      projDot.setAttribute('r', '4');
-      projDot.setAttribute('fill', 'white');
-      projDot.setAttribute('stroke', ACCENT);
-      projDot.setAttribute('stroke-width', '2');
-      projDot.setAttribute('opacity', '0.75');
-      svg.appendChild(projDot);
+        // Project dot
+        const projDot = document.createElementNS('http://www.w3.org/2000/svg', 'circle');
+        projDot.setAttribute('cx', String(INDENT_X));
+        projDot.setAttribute('cy', String(projY));
+        projDot.setAttribute('r', '4');
+        projDot.setAttribute('fill', 'white');
+        projDot.setAttribute('stroke', ACCENT);
+        projDot.setAttribute('stroke-width', '2');
+        projDot.setAttribute('opacity', '0.75');
+        svg.appendChild(projDot);
+      });
     });
+  }
+
+  requestAnimationFrame(drawTimeline);
+
+  let _tlResizeTimer: ReturnType<typeof setTimeout>;
+  window.addEventListener('resize', () => {
+    clearTimeout(_tlResizeTimer);
+    _tlResizeTimer = setTimeout(drawTimeline, 100);
   });
-}
-
-requestAnimationFrame(drawTimeline);
-
-let _tlResizeTimer: ReturnType<typeof setTimeout>;
-window.addEventListener('resize', () => {
-  clearTimeout(_tlResizeTimer);
-  _tlResizeTimer = setTimeout(drawTimeline, 100);
-});
 </script>

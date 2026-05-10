@@ -27,7 +27,8 @@ const sorted = sortProjects(projects ?? []);
   <div
     class="absolute left-0 top-1.5 h-3 w-3 -translate-x-1/2 rounded-full border-2 border-white bg-accent shadow"
     aria-hidden="true"
-  ></div>
+  >
+  </div>
 
   <div class="flex flex-col gap-1">
     <p class="text-xs font-medium uppercase tracking-wide text-gray-400">
@@ -79,11 +80,6 @@ const sorted = sortProjects(projects ?? []);
                     {p.start ? fmt(p.start) : '?'}
                     {' — '}
                     {p.end ? fmt(p.end) : 'Present'}
-                    {tlDate && p.timeline_label && (
-                      <span class="ml-1.5 font-semibold text-accent/70">
-                        · {p.timeline_label}
-                      </span>
-                    )}
                   </p>
                 )}
 

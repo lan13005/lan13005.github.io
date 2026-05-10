@@ -10,7 +10,7 @@ meta_title       = "Lawrence Ng — Postdoctoral Fellow"
 meta_description = "Personal site of Lawrence Ng, a physicist and ML researcher at Thomas Jefferson National Accelerator Facility."
 
 bio = """
-I am interested in understanding the world around us through statistics and computation — \ 
+I am interested in understanding the world around us through statistics and computation,  \ 
 whether it is characterizing the properties of quantum systems or analyzing survey responses \
 to identify patterns in collective human behavior.
 """
@@ -52,7 +52,7 @@ blurb = "Performing Statistical modeling and AI for Research across disciplines"
 
 [[site.what_i_do]]
 icon  = "lucide:wrench"
-title = "Engineering"
+title = "Software Engineering"
 blurb = "Scalable frameworks in Python — leveraging HPC resources"
 
 [[site.what_i_do]]
@@ -132,9 +132,10 @@ summary.web = "Developed non-parametric statistical frameworks and end-to-end an
   title          = "iftpwa"
   featured       = false
   github         = "https://github.com/fmkroci/iftpwa"
-  start          = "2024-01-01"
+  start          = "2023-12-01"
+  end            = "2025-07-01"
   timeline_label = "start"
-  tags           = ["python", "jax", "openmpi", "gaussian-processes", "variational-inference"]
+  tags           = ["python", "jax", "openmpi", "gaussian-processes", "variational-inference", "information-theory"]
 
   summary.cv  = "Declarative framework for smooth non-parametric statistical models using Gaussian Processes and Variational Inference, enabling Bayesian inference over O(10^6) free parameters."
   summary.web = "Developing a declarative framework for smooth non-parametric statistical models using Python, JAX, and OpenMPI with Gaussian Processes and Variational Inference, enabling Bayesian inference over O(10^6) free parameters."
@@ -142,15 +143,15 @@ summary.web = "Developed non-parametric statistical frameworks and end-to-end an
   [[experience.project]]
   id             = "pyamptools"
   title          = "PyAmpTools"
-  featured       = true
+  featured       = false
   github         = "https://github.com/lan13005/PyAmpTools"
   start          = "2023-07-01"
-  end            = "2025-07-01"
+  end            = "2025-10-01"
   timeline_label = "start"
   tags           = ["python", "c++", "normalizing-flows", "bayesian-inference"]
 
   summary.cv  = "End-to-end analysis pipeline: physics event generation, detector efficiency emulation via normalizing flows, interfacing with Bayesian and frequentist optimization frameworks. Includes Python bindings for the collaboration's C++ software and user-facing documentation."
-  summary.web = "Built an end-to-end analysis pipeline generating physics events from a model, emulating detector efficiency via normalizing flows, and interfacing with both Bayesian- and frequentist-based optimization frameworks for rapid closure tests. Also created Python bindings for the collaboration's C++ analysis software and maintains user-facing documentation to ensure long-term sustainability."
+  summary.web = "Built an end-to-end analysis pipeline generating physics events from a model, emulating detector efficiency via normalizing flows, and interfacing with both Bayesian- and frequentist-based optimization frameworks for rapid closure tests. Contains Python bindings for the collaboration's C++ analysis software and maintains user-facing documentation to ensure long-term sustainability."
 
 
 [[experience]]
@@ -166,11 +167,11 @@ summary.web = "Published research in top physics journals applying deep learning
 
   [[experience.project]]
   id             = "exotic-hadrons-prd"
-  title          = "Exotic Hadron Classification"
-  featured       = true
-  start          = "2020-01-01"
-  end            = "2022-06-01"
-  timeline_label = "end"
+  title          = "Deep Learning Exotic Hadrons"
+  featured       = false
+  start          = "2021-01-01"
+  end            = "2021-10-01"
+  timeline_label = "start"
   tags           = ["python", "pytorch", "deep-learning", "shapley-values"]
 
   summary.cv  = "Published in Physical Review D. DNN framework to determine the nature of exotic hadrons from their spectra using Shapley values for feature importance."
@@ -178,11 +179,11 @@ summary.web = "Published research in top physics journals applying deep learning
 
   [[experience.project]]
   id             = "supernova-cvae"
-  title          = "Supernova Spectral Templates"
+  title          = "Supernova Spectral Templates using conditional VAEs"
   featured       = false
-  start          = "2018-01-01"
-  end            = "2021-06-01"
-  timeline_label = "mid"
+  start          = "2023-01-01"
+  end            = "2023-05-01"
+  timeline_label = "start"
   tags           = ["python", "pytorch", "vaes", "bayesian-inference"]
 
   summary.cv  = "Published in The Astrophysical Journal. Conditional VAE for generating template supernova spectra, reducing systematic uncertainties by ~90%."
@@ -193,10 +194,10 @@ summary.web = "Published research in top physics journals applying deep learning
   title          = "Q-Factors Background Subtraction"
   featured       = false
   github         = "https://github.com/lan13005/Q-Factors"
-  start          = "2016-08-01"
-  end            = "2019-01-01"
+  start          = "2021-05-18"
+  end            = "2022-08-01"
   timeline_label = "start"
-  tags           = ["cpp", "multiprocessing"]
+  tags           = ["c++", "multiprocessing"]
 
   summary.cv  = "Implemented computationally intensive background subtraction technique in C++ with multiprocessing support, improving analysis efficiency for large datasets."
   summary.web = "Implemented a computationally intensive background subtraction technique in C++ with multiprocessing support, improving analysis efficiency for large datasets."

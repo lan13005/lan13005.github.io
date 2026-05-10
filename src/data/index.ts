@@ -1,5 +1,5 @@
 import { parse } from 'smol-toml';
-import raw from './profile.toml?raw';
+import raw from '../../profile.toml?raw';
 
 // ─── Types ───────────────────────────────────────────────────────────────────
 

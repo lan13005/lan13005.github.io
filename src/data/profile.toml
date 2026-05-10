@@ -17,7 +17,7 @@ to identify patterns in collective human behavior.
 
 [[site.cta]]
 label   = "View Experience"
-href    = "/experience"
+href    = "/#experience"
 primary = true
 
 [[site.cta]]

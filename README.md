@@ -1,7 +1,3 @@
-# Profile Page
-
-[Click here for the personal page](https://lan13005.github.io/)
-
 # Prerequisites
 
 Built with [Astro](https://astro.build), [Tailwind CSS](https://tailwindcss.com), and deployed to GitHub Pages.
@@ -21,7 +17,10 @@ Top-level structure:
 
 # Development
 
-**One-time setup:** Create a repo called "your-username.github.io". Go to **Settings → Pages → Source** and set it to **"GitHub Actions"**.
+**One-time setup:** 
+
+- Create a repo called "your-username.github.io"
+- Go to **Settings → Pages → Source** and set it to **"GitHub Actions"**.
 
 After that, every push to `main` deploys automatically.
 

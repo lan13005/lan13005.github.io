@@ -1,6 +1,6 @@
 # Profile Page
 
-[Click here for the personal page](https://lan13005.github.io/personal_page/)
+[Click here for the personal page](https://lan13005.github.io/)
 
 # Prerequisites
 
@@ -21,7 +21,7 @@ Top-level structure:
 
 # Development
 
-**One-time setup:** In your repo on GitHub, go to **Settings → Pages → Source** and set it to **"GitHub Actions"**.
+**One-time setup:** Create a repo called "your-username.github.io". Go to **Settings → Pages → Source** and set it to **"GitHub Actions"**.
 
 After that, every push to `main` deploys automatically.
 

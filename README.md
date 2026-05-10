@@ -41,7 +41,7 @@ When you're done, push to `main`. Astro renders every page to static HTML and bu
 
 ## Googlebot Crawler
 
-Google's crawler will eventually find your page and index it. To speed it up, we can go to:
+Google's crawler will eventually find your page and index it. To speed it up, you can go to:
 
 1. [Google Search Console](https://search.google.com/search-console)
 2. Click "Add Property" > "URL Prefix" > Enter github.io URL
